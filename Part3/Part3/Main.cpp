@@ -1,11 +1,16 @@
 #include <iostream>
 #include <vector>
+#include <fstream>
 #include <sstream>
 #include "Room.h"
 #include "Object.h"
 
 using namespace std;
-
+void initializeGame();//load all game content and start game
+vector<Room> loadRooms();//read room data from text, initialize Rooms, load rooms to vector
+//we need to change Object - it's too generic and might be protected
+vector<Object> loadObjects();//read object data from text, initialize objects, load objects to vector
+//player class?
 unsigned int searchObjects(vector<Object> vector, std::string firstObject);
 std::string examineObject(std::string objectName, vector<Object> vector);
 void print(vector<Object> vector);
@@ -126,6 +131,33 @@ int main()
 
 	system("pause");
 	return 0;
+}
+
+void initializeGame()
+{
+	vector<Room> rVector;
+	vector<Object> oVector;
+	rVector=loadRooms();
+	oVector = loadObjects();
+
+}
+
+vector<Room> loadRooms()
+{
+	vector<Room> outVector;
+	ifstream roomData("f:/temp/room.txt");
+	string allData
+	while (!roomData.eof())
+	{
+		if (getline(alldata, roomData))
+
+	}
+	return outVector;
+}
+
+vector<Object> loadObjects()
+{
+	return vector<Object>();
 }
 
 unsigned int searchObjects(vector<Object> vector, std::string firstObject)

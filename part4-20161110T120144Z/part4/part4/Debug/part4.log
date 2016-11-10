@@ -1,0 +1,14 @@
+﻿  Room.cpp
+  PairObject.cpp
+  Object.cpp
+c:\users\thomas\desktop\work\year 3\c++\assignments\ca1 pair project\saves\part4\part4\object.cpp(13): error C2065: 'pickUpable': undeclared identifier
+c:\users\thomas\desktop\work\year 3\c++\assignments\ca1 pair project\saves\part4\part4\object.cpp(13): warning C4805: '==': unsafe mix of type 'unknown-type' and type 'bool' in operation
+  Main.cpp
+c:\users\thomas\desktop\work\year 3\c++\assignments\ca1 pair project\saves\part4\part4\main.cpp(43): warning C4101: 'nextRoom': unreferenced local variable
+c:\users\thomas\desktop\work\year 3\c++\assignments\ca1 pair project\saves\part4\part4\main.cpp(141): warning C4018: '<': signed/unsigned mismatch
+c:\users\thomas\desktop\work\year 3\c++\assignments\ca1 pair project\saves\part4\part4\main.cpp(156): warning C4018: '<': signed/unsigned mismatch
+  ContainerObject.cpp
+  BuildableObject.cpp
+  Generating Code...
+c:\users\thomas\desktop\work\year 3\c++\assignments\ca1 pair project\saves\part4\part4\containerobject.cpp(20): error C4716: 'open': must return a value
+c:\users\thomas\desktop\work\year 3\c++\assignments\ca1 pair project\saves\part4\part4\main.cpp(146): warning C4715: 'searchObjects': not all control paths return a value
