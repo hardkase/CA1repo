@@ -5,6 +5,7 @@ class Room
 {
 public:
 	//Constructors/ Destructors
+	Room();
 	Room(unsigned int number, unsigned int north, unsigned int south, unsigned int east, unsigned int west,
 		std::string name, std::string description);
 	~Room();
@@ -20,7 +21,7 @@ public:
 	std::string getDescription() { return description; }
 
 	//Setters
-	void setNumber(unsigned int number) { Room::number = number; }
+	void setNumber(unsigned int number) { Room::number = number; }//change to setRoomID
 	void setNorth(unsigned int north) { Room::north = north; }
 	void setSouth(unsigned int south) { Room::south = south; }
 	void setEast(unsigned int east) { Room::east = east; }

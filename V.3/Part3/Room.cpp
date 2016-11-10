@@ -3,6 +3,10 @@
 
 using namespace std;
 
+Room::Room()
+{
+}
+
 Room::Room(unsigned int number, unsigned int north, unsigned int south, unsigned int east, unsigned int west,
 	std::string name, std::string description) : number(number), north(north), south(south), east(east), west(west),
 	name(name), description(description)

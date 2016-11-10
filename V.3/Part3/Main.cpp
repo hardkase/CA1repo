@@ -146,10 +146,32 @@ vector<Room> loadRooms()
 {
 	vector<Room> outVector;
 	ifstream roomData("f:/temp/room.txt");
-	string allData
+	
 	while (!roomData.eof())
 	{
-		if (getline(alldata, roomData))
+		Room chamber;
+		int holder1;
+		string holder;
+		getline(roomData, holder);
+		holder1 = (int)holder;
+		chamber.setNumber(holder1);
+		getline(roomData, holder);
+		holder1 = (int)holder;
+		chamber.setNorth(holder1);
+		getline(roomData, holder);
+		holder1 = (int)holder;
+		chamber.setSouth(holder1);
+		getline(roomData, holder);
+		holder1 = (int)holder;
+		chamber.setEast(holder1);
+		getline(roomData, holder);
+		holder1 = (int)holder;
+		chamber.setWest(holder1);
+		getline(roomData, holder);
+		chamber.setName(holder);
+		getline(roomData, holder);
+		chamber.setDescription(holder);
+
 
 	}
 	return outVector;
