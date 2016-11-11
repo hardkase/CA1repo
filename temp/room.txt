@@ -1,0 +1,47 @@
+001
+entry
+0
+002
+0
+0
+You enter the entry. It is dark here.
+002
+003
+0
+004
+001
+This appears to be an antechamber.
+003
+antechamber
+0
+0
+002
+0
+You stand in the sacrificial chamber. Spooky.
+004
+guardroom
+005
+002
+0
+0
+This appears to be where the guards maintained their vigil.
+005
+tomb
+0
+0
+006
+004
+You see the sarcophogus here. It appears to be open and empty!
+006
+vault
+005
+0
+0
+0
+This appears to be the Royal Vault. It's filled with Gold. You are rich!
+
+
+
+
+
+

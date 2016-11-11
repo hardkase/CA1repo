@@ -1,0 +1,24 @@
+001
+torch
+001
+An old half burned torch.
+002
+bronze dagger
+002
+a corroded bronze dagger, still sharp
+003
+old skull
+003
+An old yellow skull sits on the altar.
+004
+khopesh sword
+004
+a dull and oxidized khopesh sword
+005
+glowing necklace
+005
+Strange golden jeweled necklace with a large saphire that glows ominously
+006
+Ming Vase
+006
+A priceless ming vase in perfect nick sits on a rotting table.
