@@ -1,0 +1,21 @@
+1
+entry
+entry room, dusty
+2
+hall
+long spooky hall
+3
+sitting room
+dusty old sitting room
+1
+candlestick
+old varnished candlestick
+2
+candle
+yellowed half spent candle
+3
+matchbox
+really old box of matches
+4
+matches
+Five ancient matches inside
