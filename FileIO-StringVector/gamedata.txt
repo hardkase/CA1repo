@@ -1,21 +1,28 @@
+R
 1
 entry
 entry room, dusty
+R
 2
 hall
 long spooky hall
+R
 3
 sitting room
 dusty old sitting room
+L
 1
 candlestick
 old varnished candlestick
+L
 2
 candle
 yellowed half spent candle
+L
 3
 matchbox
 really old box of matches
+L
 4
 matches
 Five ancient matches inside

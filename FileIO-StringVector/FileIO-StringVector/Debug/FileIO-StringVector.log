@@ -1,3 +1,5 @@
 ﻿  Main.cpp
+f:\skool\c++\codez\fileio-stringvector\fileio-stringvector\main.cpp(47): warning C4018: '<': signed/unsigned mismatch
+f:\skool\c++\codez\fileio-stringvector\fileio-stringvector\main.cpp(67): warning C4018: '<': signed/unsigned mismatch
   FileIO-StringVector.vcxproj -> F:\Skool\C++\codez\FileIO-StringVector\Debug\FileIO-StringVector.exe
   FileIO-StringVector.vcxproj -> F:\Skool\C++\codez\FileIO-StringVector\Debug\FileIO-StringVector.pdb (Partial PDB)

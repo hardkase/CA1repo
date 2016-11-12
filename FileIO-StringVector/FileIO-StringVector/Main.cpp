@@ -9,14 +9,14 @@ using namespace std;
 
 //declarations
 void initializeGame();
-//vector<Loot> loadLoot();
-//vector<Room> loadRooms();
-//void printLoot(vector<Loot> lootList);
-//void printRoom(vector<Room> roomList);
+vector<Loot> loadLoot(vector<string> gameData);
+vector<Room> loadRooms(vector<string> gameData);
+void printLoot(vector<Loot> lootList);
+void printRoom(vector<Room> roomList);
 vector<string> readGameData();
 void printGameData(vector<string> gameData);
 //main
-int main()
+int main()//step 1 main
 {
 	initializeGame();
 	//stuff
@@ -24,93 +24,72 @@ int main()
 	return 0;
 }
 
-void initializeGame()
+void initializeGame()//step 2, set everything up...this is where the party starts
 {
 	vector<Loot> lootList;
 	vector<Room> roomList;
 	vector<string> gameData;
-	gameData = readGameData();
-	//lootList = loadLoot();
-	//roomList = loadRooms();
-	//printLoot(lootList);
-	//printRoom(roomList);
-	//roomList = loadRooms();
-	printGameData(gameData);
+	gameData = readGameData();//3
+	lootList = loadLoot(gameData);//4
+	roomList = loadRooms(gameData);//5
+	printLoot(lootList);//6
+	printRoom(roomList);//7
+	printGameData(gameData);//8
 }
 
-/*vector<Loot> loadLoot()
+vector<Loot> loadLoot(vector<string> gameData)//pass in string vector, pick out object identifier, get next 3 vars, instantiate, push to vector, return vector
 {
 	vector<Loot> outVector;
-	ifstream lootData;
-	lootData.open("F:/temp/loot2.txt");
-	if (!lootData)
+	string id;
+	string name;
+	string desc;
+	size_t size = gameData.size();
+	for (int i = 0; i < size; i++)
 	{
-		cout << "Error-can't find file or file is empty!" << endl;
+		if (gameData[i] == "L")
+		{
+			id = gameData[i + 1];
+			name = gameData[i + 2];
+			desc = gameData[i + 3];
+			Loot loot(id, name, desc);
+			outVector.push_back(loot);
+		}
 	}
-	Loot item;
-	while (!lootData.eof())
-	{
-		string id;
-		string name;
-		string desc;
-		getline(lootData, id);
-		getline(lootData, name);
-		getline(lootData, desc);
-		Loot item(id, name, desc);
-		outVector.push_back(item);
-	}
-	lootData.close();
 	return outVector;
 }
-vector<Room> loadRooms()
+vector<Room> loadRooms(vector<string> gameData)//pass in string vector, pick out object identifier, get next 3 vars, instantiate, push to vector, return vector
 {
 	vector<Room> outVector;
-	ifstream roomData;
-	roomData.open("F:/temp/room2.txt");
-	if (!roomData)
+	string id;
+	string name;
+	string desc;
+	size_t size = gameData.size();
+	for (int i = 0; i < size; i++)
 	{
-		cout << "Error-can't find file or file is empty!" << endl;
+		if (gameData[i] == "R")
+		{
+			id = gameData[i + 1];
+			name = gameData[i + 2];
+			desc = gameData[i + 3];
+			Room room(id, name, desc);
+			outVector.push_back(room);
+		}
 	}
-	//string holder = "";
-	while (!roomData.eof())
-	{
-		//string datadump;
-		//getline(roomData, datadump);
-		//while(!datadump.eof())
-		//{
-		string id;
-		string name;
-		string desc;
-		getline(roomData, id);
-		getline(roomData, name);
-		getline(roomData, desc);
-		Room chamber(id, name, desc);
-		outVector.push_back(chamber);
-		//}
-		/*getline(roomData, holder);
-		chamber.setID(holder);
-		getline(roomData, holder);
-		chamber.setName(holder);
-		getline(roomData, holder);
-		chamber.setDesc(holder);
-		outVector.push_back(chamber);
-	}
-	roomData.close();
 	return outVector;
 }
 
-void printLoot(vector<Loot> lootList)
+void printLoot(vector<Loot> lootList)//pass in Loot vector, ranged for loop to call object print method
 {
 	for (Loot l : lootList)
 		l.print(l);
 }
-void printRoom(vector<Room> roomList)
+void printRoom(vector<Room> roomList)//pass in Room vector, ranged for loop to call object print method
 {
 	for (Room r : roomList)
 		r.print(r);
-}*/
+}
 
-vector<string> readGameData()
+vector<string> readGameData()//step 3: read in everything from text as strings, push into string vector and return
 {
 	vector<string> outVector;
 	ifstream gameData;
@@ -129,7 +108,7 @@ vector<string> readGameData()
 	return outVector;
 }
 
-void printGameData(vector<string> gameData)
+void printGameData(vector<string> gameData)//test method - print all elements of string vector and get count of elements
 {
 	size_t size = gameData.size();
 	for (string s : gameData)
