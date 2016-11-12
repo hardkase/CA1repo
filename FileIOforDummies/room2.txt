@@ -1,0 +1,9 @@
+1
+entry
+entry room, dusty
+2
+hall
+long spooky hall
+3
+sitting room
+dusty old sitting room
