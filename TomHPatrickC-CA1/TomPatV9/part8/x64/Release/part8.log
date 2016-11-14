@@ -1,0 +1,15 @@
+﻿  BuildableObject.cpp
+  ContainerObject.cpp
+  Main.cpp
+Main.cpp(402): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+Main.cpp(440): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+Main.cpp(479): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+Main.cpp(518): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+  Object.cpp
+  PairObject.cpp
+  Room.cpp
+  Generating code
+  All 583 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  part8.vcxproj -> F:\Skool\C++\CA1repo\TomPatV12\TomPatV9\x64\Release\part8.exe
+  part8.vcxproj -> F:\Skool\C++\CA1repo\TomPatV12\TomPatV9\x64\Release\part8.pdb (Full PDB)

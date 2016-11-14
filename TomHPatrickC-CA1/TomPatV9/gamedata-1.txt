@@ -1,0 +1,85 @@
+*START*
+After weeks of daring yourself, you head off to the Cromwell Mansion. 
+It is a deserted ruinous edifice, with many a broken window and a 
+plethoraof missing roof tiles. Of course, you choose to do this at night. 
+You feel a sense of foreboding as you wade through the sea of weeds that used
+to be the mansions front garden. As you reach the door, and turn the handle,
+the door opens on rusty hinges in an eery fashion, almost inviting you in.
+*END*
+You leave the way you entered, if more rapidly, with your treasure intact. 
+The vase will fetch thousands, maybe even millions at auction. As you quickly wade 
+back through the weeds towards your own dilapidated home, you catch your toe on an
+old paving stone, and fall face first into another paving stone, knocking yourself
+unconscious. You wake several minutes later, with a throbbing face and blood gushing
+from your nose. You find the vase, or what's left of it, shattered into a thousand 
+pieces. You've learned an important lesson: go carefully when escaping a creepy 
+mansion with a priceless and delicate artifact.
+***The End***
+*R*
+1
+
+
+dirty room
+hall
+foyer
+Old marble foyer with stuff
+*R*
+2 
+foyer
+
+kitchen
+
+dirty room
+dirty, dusty room with broken furniture
+*R*
+3
+dining room
+foyer
+kitchen
+
+hall
+A dusty dim old hallway
+*R*
+4
+hall
+dirty room
+
+
+kitchen
+Old kitchen, it looks like it partially burned
+*R*
+5
+
+
+hall
+
+dining room
+This looks like a dining room. There is a corpse on the floor.
+*O*
+1
+silver fork
+a tarnished silver fork
+1
+dining room
+null
+*O*
+2
+rusty revolver
+an ancient revolver. The cylinder is open and there are no bullets.
+1
+kitchen
+null
+*O*
+3
+dark star pebble
+an ugly dull gray marble that cannot be lifted
+0
+dirty room
+null
+*O*
+4
+perfect ming vase
+The vase is breathtaking in its simplicity, the porcelain so fine it looks like tissue.
+1
+hall
+null

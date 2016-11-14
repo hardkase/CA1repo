@@ -1,0 +1,111 @@
+*R*
+1
+0
+0
+0
+First Antechamber
+Entrance Chamber
+A semi circular stone room with a vertical shaft leading up. THere's an exit North.
+*R*
+2
+0
+Entrance Chamber
+0
+Mummification Chamber
+First Antechamber
+You step into a dusty stone hallway that leads to a doorway to the north. The air is very stale
+*R*
+3
+Guardroom
+First Antechamber
+Slave Tomb
+0
+Mummification Chamber
+This large vaulted room with a central raised slab must be where the Pharoah was mummified. Broken jars litter the floor. A hole in the west wall and a passage to the east lead out of the room.
+*R*
+4
+Mummification Chamber
+0
+0
+0
+Slave Tomb
+Stepping through the dark hole in the wall, your foot crunches loudly. You're stepping on bones. This must have been where the slaves were walled in to join the Pharoah in eternity. A cold chill runs down your spine.
+*R*
+5
+0
+0
+Mummification Chamber
+Dark Hallway
+Guardroom
+This room is where several guards chose to keep vigil over their fallen lord. Some of their bones remain, as well as fragments of their weapons and armor.
+*R*
+6
+0
+Guardroom
+0
+Tomb
+Dark Hallway
+You step into an oddly dark hallway. The floor is very slippery. You realize the walls are made of obsidian, probably to distract and intimidate intruders.
+*R*
+7
+Vault
+Dark Hallway
+0
+0
+Tomb
+Here the Pharoah was buried in a golden sarcophagus. The lid is open and the casket is empty! The east wall has caved in and you see the glitter of gold beyond!
+*R*
+0
+0
+Tomb
+0
+Vault
+The Pharoah's treasures
+*PO*
+1
+empty flashlight
+You've found a vintage flashlight. The end is hanging open and the battery has fallen out.
+1
+Entrance Chamber
+battery
+lit flashlight
+*PO*
+2
+battery
+You've found an old D Cell battery. It appears only slightly corroded.
+1
+Entrance Chamber
+empty flashlight
+lit flashlight
+*BO*
+3
+lit flashlight
+beat up old flashlight with a surprisingly bright bulb
+1
+null
+You put the battery into the flashlight and close the back. It turns on, and emits a bright light.
+*CO*
+4
+wooden box
+Old wooden box, shaped kind of like a mummy's sarcophagus, with a hinged lid.
+1
+Mummification Chamber
+Shiny copper dagger
+*O*
+5
+Shiny Copper Dagger
+You find a shiny copper dagger, still sharp and intricately worked, inside the funny wooden box.
+1
+Mummification Chamber
+*O*
+6
+vase
+It appears to be an ancient Ming vase in perfect nick! How is this inside a 3000 year old Egyptian tomb?
+1
+Vault
+*O*
+7
+golden scarab
+Intricately worked scarab made of solid gold with lapis eyes.
+1
+Tomb
