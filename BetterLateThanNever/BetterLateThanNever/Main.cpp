@@ -7,8 +7,13 @@
 #include "Loot.h"
 #include "Player.h"
 using namespace std;
+//SO to make this work right, need to finish actions in handleInput and tweak Loot vars to better
+//encompass special items (usable, combinable, and containers). Probably should have a proper game loop
+//and would like to put currentRoom back in Player to see if pointer related error persists
+//Otherwise, this is working as intended :-) -PC- 24/11/2016
 //declarations
 //implement all user input using this: http://www.cplusplus.com/forum/articles/6046/
+string getInput();
 void initialize();
 vector<string> getData(string path);
 vector<Loot> loadLoot(vector<string> gameData);
@@ -40,22 +45,22 @@ void initialize()
 	Player p1("namelessOne");
 	string pName;
 	cout << "Welcome to Dungeon'Splorer! Please enter your character's name: " << endl;
-	cin >> pName;
+	pName=getInput();
 	p1.setName(pName);
 	string path;
 	while (!fileFound)
 	{
 		cout << "Please enter the drive letter where your game files are stored: " << endl;
 		string driveLetter = "c";
-		cin >> driveLetter;
+		driveLetter =getInput();
 		string drive = driveLetter + ":\\";
 		cout << "Please enter the file path where the game files are located: " << endl;
 		string fPath = "temp";
-		cin >> fPath;
+		fPath=getInput();
 		string dir = fPath + "\\";
 		cout << "Please enter the filename of the game data text file: " << endl;
 		string fName1 = "gamedata";
-		cin >> fName1;
+		fName1=getInput();
 		string fName = fName1 + ".txt";
 		path = drive + dir + fName;
 		cout << path << endl;
@@ -130,6 +135,48 @@ void initialize()
 	//drop end text
 	//terminate game loop
 }
+string getInput()
+{
+	string input = "";
+	// How to get a string/sentence with spaces
+	getline(cin, input);
+	return input;
+}
+/*
+	// How to get a number.
+	int myNumber = 0;
+
+	while (true) {
+		cout << "Please enter a valid number: ";
+		getline(cin, input);
+
+		// This code converts from string to number safely.
+		stringstream myStream(input);
+		if (myStream >> myNumber)
+			break;
+		cout << "Invalid number, please try again" << endl;
+	}
+	cout << "You entered: " << myNumber << endl << endl;
+
+	// How to get a single char.
+	char myChar = { 0 };
+
+	while (true) {
+		cout << "Please enter 1 char: ";
+		getline(cin, input);
+
+		if (input.length() == 1) {
+			myChar = input[0];
+			break;
+		}
+
+		cout << "Invalid character, please try again" << endl;
+	}
+	cout << "You entered: " << myChar << endl << endl;
+
+	cout << "All done. And without using the >> operator" << endl;
+
+}*/
 
 vector<string> getData(string path)
 {
@@ -258,10 +305,11 @@ vector<string> getUserInput()
 	cout << "What do you do?" << endl;
 	//while (cin != "\n") Doesn't work
 	//cin >> temp >> temp1 >> temp2 >> temp3;
-	//per http://stackoverflow.com/questions/15446951/how-to-cin-whole-sentence-with-whitespaces
-	getline(cin, temp);
+	//per http://stackoverflow.com/questions/15446951/how-to-cin-whole-sentence-with-whitespaces didn't work either
+	//problem is mixing/matching use of cin with getline - c++ doesn't like it - resolution INPUT METHOD
+	temp = getInput();
 	//input = temp + delimiter + temp1 + delimiter + temp2 + delimiter + temp3 + delimiter;THIS WORKS, but has too many inputs...
-	input = temp+delimiter;
+	input = temp+delimiter; //IF INPUT METHOD WORKS, this shouldn't be needed...still trailing whitespace issue, so back to hack
 	cout << input << endl;
 	size_t oldPos = -1;
 	size_t pos = input.find(delimiter, oldPos + 1);
@@ -400,33 +448,60 @@ void handleUserInput(vector<string> user, vector<Room> roomList, Player p1, Room
 	}
 	else if (user[0] == "use" && user[1] != "")//USE
 	{
-
+		//IF
+		//check that item exists in inventory
+		//check that item is usable
+		//read use description
+		//act on use type (lighting, fire, etc.)
+		//ELSE - you can't do that, dummy
 	}
 	else if (user[0] == "get" || user[0] == "take")//GET/TAKE
 	{
 		if (user[1] != "")
 		{
-
+			//check item is in roomloot
+			//add item to user inventory
+			//read pickup description
 		}
 		else
 		{
-
+			//that item isn't here or that item doesn't exist here...
 		}
 	}
 	else if (user[0] == "drop" && user[1] != "")//DROP
 	{
+		//IF
+		//check inventory for item
+		//move item from p1 inventory to roomLoot
+		//ELSE
+		//You don't have that...
 	}
 	else if (user[0] == "examine" && user[1] != "")//EXAMINE
 	{
-
+		//IF
+		//check user has item
+		//read description
+		//ELSE
+		//You don't have that
 	}
 	else if (user[0] == "open"&& user[1] != "")//OPEN
 	{
-
+		//IF
+		//user has item && item is a container
+		//desribe contents and open action
+		//add contained item to inventory
+		//add empty container to inventory
+		//ELSE
+		//can't do that
 	}
 	else if (user[0] == "combine" && user[1] != "")//COMBINE
 	{
-
+		//IF
+		//user has all items and the items are combinable
+		//remove base items from inventory
+		//add NEW item to inventory
+		//ELSE
+		//can't do that
 	}
 	/*else if (user[0] == "exit" || user[0] == "quit")
 	{
