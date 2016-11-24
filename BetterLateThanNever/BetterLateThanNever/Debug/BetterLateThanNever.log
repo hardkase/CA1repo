@@ -1,0 +1,12 @@
+﻿  Main.cpp
+f:\skool\c++\codez\betterlatethannever\betterlatethannever\main.cpp(159): warning C4018: '<': signed/unsigned mismatch
+f:\skool\c++\codez\betterlatethannever\betterlatethannever\main.cpp(172): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+f:\skool\c++\codez\betterlatethannever\betterlatethannever\main.cpp(173): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+f:\skool\c++\codez\betterlatethannever\betterlatethannever\main.cpp(174): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+f:\skool\c++\codez\betterlatethannever\betterlatethannever\main.cpp(189): warning C4018: '<': signed/unsigned mismatch
+f:\skool\c++\codez\betterlatethannever\betterlatethannever\main.cpp(219): warning C4018: '<': signed/unsigned mismatch
+f:\skool\c++\codez\betterlatethannever\betterlatethannever\main.cpp(284): warning C4018: '<': signed/unsigned mismatch
+f:\skool\c++\codez\betterlatethannever\betterlatethannever\main.cpp(295): warning C4018: '<': signed/unsigned mismatch
+f:\skool\c++\codez\betterlatethannever\betterlatethannever\main.cpp(307): warning C4018: '<': signed/unsigned mismatch
+  BetterLateThanNever.vcxproj -> F:\Skool\C++\codez\BetterLateThanNever\Debug\BetterLateThanNever.exe
+  BetterLateThanNever.vcxproj -> F:\Skool\C++\codez\BetterLateThanNever\Debug\BetterLateThanNever.pdb (Partial PDB)

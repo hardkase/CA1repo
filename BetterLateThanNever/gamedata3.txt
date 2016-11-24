@@ -1,0 +1,32 @@
+*R*
+1
+entrance
+you arrive at the entrance. It's dim. There's stuff.
+0
+2
+0
+0
+*R*
+2
+parlor
+this room looks like a parlor. There's furniture and more stuff. No people.
+0
+0
+0
+1
+*L*
+1
+golf club
+an old putter from the looks of it
+0
+0
+0
+1
+*L*
+2
+candlestick
+an old broken wooden candlestick
+0
+0
+0
+2
