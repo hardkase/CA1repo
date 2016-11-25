@@ -20,6 +20,7 @@ public:
 	void setIsNew(bool isNew) { isNew = isNew; }
 	int getRoomLoc() const { return roomLoc; }
 	void setRoomLoc(int roomLoc) { roomLoc = roomLoc; }
+	void print();
 private:
 	int id, roomLoc;
 	std::string name, description;

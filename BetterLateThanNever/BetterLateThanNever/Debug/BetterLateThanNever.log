@@ -1,12 +1,15 @@
 ﻿  Main.cpp
-f:\skool\c++\codez\betterlatethannever\betterlatethannever\main.cpp(159): warning C4018: '<': signed/unsigned mismatch
-f:\skool\c++\codez\betterlatethannever\betterlatethannever\main.cpp(172): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-f:\skool\c++\codez\betterlatethannever\betterlatethannever\main.cpp(173): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-f:\skool\c++\codez\betterlatethannever\betterlatethannever\main.cpp(174): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-f:\skool\c++\codez\betterlatethannever\betterlatethannever\main.cpp(189): warning C4018: '<': signed/unsigned mismatch
-f:\skool\c++\codez\betterlatethannever\betterlatethannever\main.cpp(219): warning C4018: '<': signed/unsigned mismatch
-f:\skool\c++\codez\betterlatethannever\betterlatethannever\main.cpp(284): warning C4018: '<': signed/unsigned mismatch
-f:\skool\c++\codez\betterlatethannever\betterlatethannever\main.cpp(295): warning C4018: '<': signed/unsigned mismatch
-f:\skool\c++\codez\betterlatethannever\betterlatethannever\main.cpp(307): warning C4018: '<': signed/unsigned mismatch
-  BetterLateThanNever.vcxproj -> F:\Skool\C++\codez\BetterLateThanNever\Debug\BetterLateThanNever.exe
-  BetterLateThanNever.vcxproj -> F:\Skool\C++\codez\BetterLateThanNever\Debug\BetterLateThanNever.pdb (Partial PDB)
+f:\skool\c++\ca1repo\betterlatethannever\betterlatethannever\main.cpp(124): warning C4018: '<': signed/unsigned mismatch
+f:\skool\c++\ca1repo\betterlatethannever\betterlatethannever\main.cpp(137): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+f:\skool\c++\ca1repo\betterlatethannever\betterlatethannever\main.cpp(138): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+f:\skool\c++\ca1repo\betterlatethannever\betterlatethannever\main.cpp(139): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+f:\skool\c++\ca1repo\betterlatethannever\betterlatethannever\main.cpp(154): warning C4018: '<': signed/unsigned mismatch
+f:\skool\c++\ca1repo\betterlatethannever\betterlatethannever\main.cpp(184): warning C4018: '<': signed/unsigned mismatch
+f:\skool\c++\ca1repo\betterlatethannever\betterlatethannever\main.cpp(245): warning C4018: '<': signed/unsigned mismatch
+f:\skool\c++\ca1repo\betterlatethannever\betterlatethannever\main.cpp(256): warning C4018: '<': signed/unsigned mismatch
+f:\skool\c++\ca1repo\betterlatethannever\betterlatethannever\main.cpp(267): warning C4018: '<': signed/unsigned mismatch
+f:\skool\c++\ca1repo\betterlatethannever\betterlatethannever\main.cpp(265): warning C4101: 'itemPos': unreferenced local variable
+f:\skool\c++\ca1repo\betterlatethannever\betterlatethannever\main.cpp(284): warning C4018: '<': signed/unsigned mismatch
+f:\skool\c++\ca1repo\betterlatethannever\betterlatethannever\main.cpp(278): warning C4715: 'checkRoomForLoot': not all control paths return a value
+  BetterLateThanNever.vcxproj -> F:\Skool\C++\CA1repo\BetterLateThanNever\Debug\BetterLateThanNever.exe
+  BetterLateThanNever.vcxproj -> F:\Skool\C++\CA1repo\BetterLateThanNever\Debug\BetterLateThanNever.pdb (Partial PDB)

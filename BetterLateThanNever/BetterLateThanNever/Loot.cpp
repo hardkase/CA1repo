@@ -1,6 +1,7 @@
 #include "Loot.h"
 #include "Room.h"
 #include <string>
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -15,4 +16,9 @@ Loot::Loot(int id, string name, string description, bool isBox, bool isComb, boo
 
 Loot::~Loot()
 {
+}
+
+void Loot::print()
+{
+	cout << name << endl;
 }

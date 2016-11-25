@@ -7,8 +7,13 @@
 #include "Loot.h"
 #include "Player.h"
 using namespace std;
+//SO to make this work right, need to finish actions in handleInput and tweak Loot vars to better
+//encompass special items (usable, combinable, and containers). Probably should have a proper game loop
+//and would like to put currentRoom back in Player to see if pointer related error persists
+//Otherwise, this is working as intended :-) -PC- 24/11/2016
 //declarations
 //implement all user input using this: http://www.cplusplus.com/forum/articles/6046/
+string getInput();
 void initialize();
 vector<string> getData(string path);
 vector<Loot> loadLoot(vector<string> gameData);
@@ -23,6 +28,7 @@ void handleUserInput(vector<string> user, vector<Room> roomList, Player p1, Room
 void runGame(Player p1, vector<Room>roomList, Room currentRoom);
 void printError();
 bool quit(bool gameOn);
+int checkRoomForLoot(vector<Loot> v, string s);
 int main()
 {
 	initialize();
@@ -40,22 +46,22 @@ void initialize()
 	Player p1("namelessOne");
 	string pName;
 	cout << "Welcome to Dungeon'Splorer! Please enter your character's name: " << endl;
-	cin >> pName;
+	pName=getInput();
 	p1.setName(pName);
 	string path;
 	while (!fileFound)
 	{
 		cout << "Please enter the drive letter where your game files are stored: " << endl;
 		string driveLetter = "c";
-		cin >> driveLetter;
+		driveLetter =getInput();
 		string drive = driveLetter + ":\\";
 		cout << "Please enter the file path where the game files are located: " << endl;
 		string fPath = "temp";
-		cin >> fPath;
+		fPath=getInput();
 		string dir = fPath + "\\";
 		cout << "Please enter the filename of the game data text file: " << endl;
 		string fName1 = "gamedata";
-		cin >> fName1;
+		fName1=getInput();
 		string fName = fName1 + ".txt";
 		path = drive + dir + fName;
 		cout << path << endl;
@@ -73,63 +79,20 @@ void initialize()
 	gameData = getData(path);
 	lootList = loadLoot(gameData);
 	roomList = loadRooms(gameData, lootList);
-	/*size_t lootv = lootList.size();
-	size_t roomv = roomList.size();
-	cout << lootv << "  " << roomv << endl;
-	for (Room r : roomList)
-	{
-		cout << r.getID() << endl;
-		cout << r.getName() << endl;
-		cout << r.getDescription() << endl;
-		cout << r.getWest() << endl;
-		cout << r.getNorth() << endl;
-		cout << r.getEast() << endl;
-		cout << r.getSouth() <<"*******"<< endl;
-		vector<Loot> tempLoot = r.getRoomLoot();
-		size_t lootSize = tempLoot.size();
-		cout << lootSize <<"********"<< endl;
-	}
-	for (Loot l : lootList)
-	{
-		cout << l.getID() << endl;
-		cout << l.getName() << endl;
-		cout << l.getDescription() << endl;
-		cout << l.getIsBox() << endl;
-		cout << l.getIsComb() << endl;
-		cout << l.getIsNew() << endl;
-		cout << l.getRoomLoc() <<"********"<< endl;
-	}
-	*/
 	cout << " You decide to go on an adventure. \n You enter the local haunted house" << endl;
 	Room c1;
 	c1 = searchRoomById(roomList, 1);
 	currentRoom =c1;
 	runGame(p1,  roomList, currentRoom);
-/*	readRoom(c1);
-	int count = 0;
-		}
-		else
-		{
-			vector<string> user;
-			user = getUserInput();
-			handleUserInput(user, roomList, p1);
-			count++;
-		}
-	}*/
-
-	//get player input (gamedata location) - have defaults-DONE
-	//load strings from text DONE
-	//load objects & rooms from strings DONE
-	//searches return loot or rooms by x- DONE
-	//set roomLoot - DONE
-	//set current room
-	//start game loop
-	//drop start text& first room - read current room
-	//get user input
-	//handle user input
-	//drop end text
-	//terminate game loop
 }
+string getInput()
+{
+	string input = "";
+	// How to get a string/sentence with spaces
+	getline(cin, input);
+	return input;
+}
+
 
 vector<string> getData(string path)
 {
@@ -151,7 +114,7 @@ vector<Loot> loadLoot(vector<string> gameData)
 {
 	vector<Loot> outVector;
 	
-	/*int id, std::string name, std::string description, bool isBox, bool isComb, bool isNew, int roomLoc*/
+	/*LOOT VARS*: int id, std::string name, std::string description, bool isBox, bool isComb, bool isNew, int roomLoc*/
 	string strId, tempName, tempDesc, strBox, strComb, strNew, strRoom;
 	int tId, tRoom;
 	bool tBox, tComb, tNew;
@@ -190,7 +153,7 @@ vector<Room> loadRooms(vector<string> gameData, vector<Loot> lootList)
 	size_t idSize, wSize, nSize, eSize, sSize;
 	for (int i = 0; i < size; i++)
 	{
-		/*int id, std::string name, std::string description, int west,
+		/*ROOM VARS*: int id, std::string name, std::string description, int west,
 		int north, int east, int south, std::vector<Loot> roomLoot*/
 		if (gameData[i] == "*R*")
 		{
@@ -253,15 +216,11 @@ void readRoom(Room r)
 vector<string> getUserInput()
 {
 	vector<string> outVector;
-	string temp, input/*, temp1, temp2, temp3*/;
+	string temp, input;
 	string delimiter = " ";
 	cout << "What do you do?" << endl;
-	//while (cin != "\n") Doesn't work
-	//cin >> temp >> temp1 >> temp2 >> temp3;
-	//per http://stackoverflow.com/questions/15446951/how-to-cin-whole-sentence-with-whitespaces
-	getline(cin, temp);
-	//input = temp + delimiter + temp1 + delimiter + temp2 + delimiter + temp3 + delimiter;THIS WORKS, but has too many inputs...
-	input = temp+delimiter;
+	temp = getInput();
+	input = temp+delimiter; //IF INPUT METHOD WORKS, this shouldn't be needed...still trailing whitespace issue, so back to hack
 	cout << input << endl;
 	size_t oldPos = -1;
 	size_t pos = input.find(delimiter, oldPos + 1);
@@ -301,6 +260,22 @@ Room searchRoomById(vector<Room> roomList, int id)
 	}
 	return room;
 }
+int checkRoomForLoot(vector<Loot> v, string s)
+{
+	int itemPos;
+	size_t vecSize = v.size();
+	for (int i = 0; i < vecSize; i++)
+	{
+		if (v[i].getName() == s)
+		{
+			return i;
+		}
+		else
+		{
+			return -1;
+		}
+	}
+}
 vector<Loot> getRoomLoot(vector<Loot> lootList, int id)
 {
 		vector<Loot> outVector;
@@ -326,7 +301,6 @@ void handleUserInput(vector<string> user, vector<Room> roomList, Player p1, Room
 			string tmp = user[1];
 			if (tmp == "west"||tmp == "West"||tmp=="WEST")
 			{
-				//Room c1 = currentRoom;
 				int id = c1.getWest();
 				if (id == 0)
 				{
@@ -343,7 +317,6 @@ void handleUserInput(vector<string> user, vector<Room> roomList, Player p1, Room
 			}
 			else if (tmp == "north")
 			{
-				//Room c1 = currentRoom;
 				int id = c1.getNorth();
 				if (id == 0)
 				{
@@ -360,7 +333,6 @@ void handleUserInput(vector<string> user, vector<Room> roomList, Player p1, Room
 			}
 			else if (tmp == "east")
 			{
-				//Room c1 = currentRoom;
 				int id = c1.getEast();
 				if (id == 0)
 				{
@@ -377,7 +349,6 @@ void handleUserInput(vector<string> user, vector<Room> roomList, Player p1, Room
 			}
 			else if (tmp == "south")
 			{
-				//Room c1 = currentRoom;
 				int id = c1.getSouth();
 				if (id == 0)
 				{
@@ -400,33 +371,91 @@ void handleUserInput(vector<string> user, vector<Room> roomList, Player p1, Room
 	}
 	else if (user[0] == "use" && user[1] != "")//USE
 	{
-
+		//IF
+		//check that item exists in inventory
+		//check that item is usable
+		//read use description
+		//act on use type (lighting, fire, etc.)
+		//ELSE - you can't do that, dummy
 	}
 	else if (user[0] == "get" || user[0] == "take")//GET/TAKE
 	{
 		if (user[1] != "")
 		{
-
+			string lootName = user[1];
+			vector<Loot> tempLoot = currentRoom.getRoomLoot();
+			vector<Loot> inv = p1.getInventory();
+			int lootPos = checkRoomForLoot(tempLoot, lootName);
+			if (lootPos == -1)
+			{
+				printError();
+				getUserInput();
+			}
+			else
+			{
+				Loot loot = tempLoot[lootPos];
+				tempLoot.erase(tempLoot.begin()+ lootPos);
+				currentRoom.setRoomLoot(tempLoot);
+				inv.push_back(loot);
+				p1.setInventory(inv);
+				cout << lootName << " is added to your inventory." << endl;
+				vector<Loot> printRoomLoot = currentRoom.getRoomLoot();
+				vector<Loot> printInventory = p1.getInventory();
+				for (Loot l : printRoomLoot)
+				{
+					cout << "left in room: "<< endl;
+					l.print();
+				}
+				for (Loot l : printInventory)
+				{
+					cout << "Inventory: " << endl;
+					l.print();
+				}
+				runGame(p1, roomList, currentRoom);
+			}
+			//check item is in roomloot
+			//add item to user inventory
+			//read pickup description
 		}
 		else
 		{
-
+			//that item isn't here or that item doesn't exist here...
 		}
 	}
 	else if (user[0] == "drop" && user[1] != "")//DROP
 	{
+		//IF
+		//check inventory for item
+		//move item from p1 inventory to roomLoot
+		//ELSE
+		//You don't have that...
 	}
 	else if (user[0] == "examine" && user[1] != "")//EXAMINE
 	{
-
+		//IF
+		//check user has item
+		//read description
+		//ELSE
+		//You don't have that
 	}
 	else if (user[0] == "open"&& user[1] != "")//OPEN
 	{
-
+		//IF
+		//user has item && item is a container
+		//desribe contents and open action
+		//add contained item to inventory
+		//add empty container to inventory
+		//ELSE
+		//can't do that
 	}
 	else if (user[0] == "combine" && user[1] != "")//COMBINE
 	{
-
+		//IF
+		//user has all items and the items are combinable
+		//remove base items from inventory
+		//add NEW item to inventory
+		//ELSE
+		//can't do that
 	}
 	/*else if (user[0] == "exit" || user[0] == "quit")
 	{
@@ -463,3 +492,100 @@ bool quit(bool gameOn)
 }
 
 //tests determinlootIteme that code so far is working. Need some search & return methods and user input
+/*CODE BONEYARD!
+/*
+**THIS IS THE REST OF THE GET INPUT FROM C++ Reference**
+// How to get a number.
+int myNumber = 0;
+
+while (true) {
+cout << "Please enter a valid number: ";
+getline(cin, input);
+
+// This code converts from string to number safely.
+stringstream myStream(input);
+if (myStream >> myNumber)
+break;
+cout << "Invalid number, please try again" << endl;
+}
+cout << "You entered: " << myNumber << endl << endl;
+
+// How to get a single char.
+char myChar = { 0 };
+
+while (true) {
+cout << "Please enter 1 char: ";
+getline(cin, input);
+
+if (input.length() == 1) {
+myChar = input[0];
+break;
+}
+
+cout << "Invalid character, please try again" << endl;
+}
+cout << "You entered: " << myChar << endl << endl;
+
+cout << "All done. And without using the >> operator" << endl;
+
+}
+**TRIAL AND ERROR WITH getUserInput**
+, temp1, temp2, temp3
+//while (cin != "\n") Doesn't work
+//cin >> temp >> temp1 >> temp2 >> temp3;
+//per http://stackoverflow.com/questions/15446951/how-to-cin-whole-sentence-with-whitespaces didn't work either
+problem is mixing/matching use of cin with getline - c++ doesn't like it - resolution INPUT METHOD
+input = temp + delimiter + temp1 + delimiter + temp2 + delimiter + temp3 + delimiter;THIS WORKS, but has too many inputs...
+/***Test Prints from Initialize()***
+size_t lootv = lootList.size();
+size_t roomv = roomList.size();
+cout << lootv << "  " << roomv << endl;
+for (Room r : roomList)
+{
+cout << r.getID() << endl;
+cout << r.getName() << endl;
+cout << r.getDescription() << endl;
+cout << r.getWest() << endl;
+cout << r.getNorth() << endl;
+cout << r.getEast() << endl;
+cout << r.getSouth() <<"*******"<< endl;
+vector<Loot> tempLoot = r.getRoomLoot();
+size_t lootSize = tempLoot.size();
+cout << lootSize <<"********"<< endl;
+}
+for (Loot l : lootList)
+{
+cout << l.getID() << endl;
+cout << l.getName() << endl;
+cout << l.getDescription() << endl;
+cout << l.getIsBox() << endl;
+cout << l.getIsComb() << endl;
+cout < l.getIsNew() << endl;
+cout << l.getRoomLoc() <<"********"<< endl;
+}
+**RANDOM NOTES TO SELF FROM INITIALIZE**
+readRoom(c1);
+int count = 0;
+}
+else
+{
+vector<string> user;
+user = getUserInput();
+handleUserInput(user, roomList, p1);
+count++;
+}
+}
+
+//get player input (gamedata location) - have defaults-DONE
+//load strings from text DONE
+//load objects & rooms from strings DONE
+//searches return loot or rooms by x- DONE
+//set roomLoot - DONE
+//set current room
+//start game loop
+//drop start text& first room - read current room
+//get user input
+//handle user input
+//drop end text
+//terminate game loop
+*/
